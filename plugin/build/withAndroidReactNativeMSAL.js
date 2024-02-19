@@ -10,13 +10,12 @@ const withAndroidActivity = (config, signatureHash) => {
     });
 };
 function setBrowserTabActivity(config, androidManifest, signatureHash) {
-    var _a, _b, _c, _d;
     const BROWSER_TAB_ACTIVITY_NAME = 'com.microsoft.identity.client.BrowserTabActivity';
     const mainApplication = getMainApplicationOrThrow(androidManifest);
-    let activity = (_a = mainApplication.activity) === null || _a === void 0 ? void 0 : _a.find((a) => a.$['android:name'] === BROWSER_TAB_ACTIVITY_NAME);
+    let activity = mainApplication.activity?.find((a) => a.$['android:name'] === BROWSER_TAB_ACTIVITY_NAME);
     if (!activity) {
         activity = { $: { 'android:name': BROWSER_TAB_ACTIVITY_NAME } };
-        mainApplication.activity = [...((_b = mainApplication.activity) !== null && _b !== void 0 ? _b : []), activity];
+        mainApplication.activity = [...(mainApplication.activity ?? []), activity];
     }
     activity['intent-filter'] = [
         {
@@ -29,7 +28,7 @@ function setBrowserTabActivity(config, androidManifest, signatureHash) {
                 {
                     $: {
                         'android:scheme': 'msauth',
-                        'android:host': (_d = (_c = config.android) === null || _c === void 0 ? void 0 : _c.package) !== null && _d !== void 0 ? _d : androidManifest.manifest.$.package,
+                        'android:host': config.android?.package ?? androidManifest.manifest.$.package,
                         'android:path': `/${signatureHash}`,
                     },
                 },

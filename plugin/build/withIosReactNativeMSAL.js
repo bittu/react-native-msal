@@ -3,17 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.withIosReactNativeMSAL = void 0;
 const config_plugins_1 = require("@expo/config-plugins");
 const withIosUrlScheme = (config) => {
-    var _a;
-    if (!((_a = config.ios) === null || _a === void 0 ? void 0 : _a.bundleIdentifier)) {
+    if (!config.ios?.bundleIdentifier) {
         throw new Error('ios.bundleIdentifier is required in your expo config');
     }
     const QUERY_SCHEMES = ['msauthv2', 'msauthv3'];
     const URL_SCHEME = { CFBundleURLSchemes: [`msauth.${config.ios.bundleIdentifier}`] };
     return (0, config_plugins_1.withInfoPlist)(config, (mod) => {
-        var _a;
         mod.modResults.CFBundleURLTypes = [URL_SCHEME, ...(mod.modResults.CFBundleURLTypes || [])];
         mod.modResults.LSApplicationQueriesSchemes = [
-            ...new Set(((_a = mod.modResults.LSApplicationQueriesSchemes) !== null && _a !== void 0 ? _a : []).concat(QUERY_SCHEMES)),
+            ...new Set((mod.modResults.LSApplicationQueriesSchemes ?? []).concat(QUERY_SCHEMES)),
         ];
         return mod;
     });
