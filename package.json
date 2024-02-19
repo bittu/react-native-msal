@@ -1,6 +1,6 @@
 {
-  "name": "react-native-msal",
-  "version": "1.0.3",
+  "name": "react-native-msal-auth",
+  "version": "1.0.4",
   "description": "React Native wrapper for iOS and Android",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -10,7 +10,7 @@
     "clean": "expo-module clean",
     "expo-module": "expo-module",
     "lint": "expo-module lint",
-    "prepare": "expo-module prepare && husky install",
+    "prepare": "expo-module prepare",
     "prepublishOnly": "expo-module prepublishOnly",
     "test": "expo-module test",
     "example": "yarn --cwd example",
@@ -31,14 +31,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stashenergy/react-native-msal.git"
+    "url": "git+https://github.com/bittu/react-native-msal.git"
   },
-  "author": "Stash Energy <dev@stash.energy> (https://stash.energy)",
+  "author": "Sandeep Vemula <vsandeep414@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stashenergy/react-native-msal/issues"
+    "url": "https://github.com/bittu/react-native-msal/issues"
   },
-  "homepage": "https://github.com/stashenergy/react-native-msal#readme",
+  "homepage": "https://github.com/bittu/react-native-msal#readme",
   "dependencies": {
     "@azure/msal-browser": "^3.10.0",
     "@expo/config-plugins": "^7.8.4"
