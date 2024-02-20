@@ -1,6 +1,6 @@
 {
   "name": "react-native-msal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React Native wrapper for iOS and Android",
   "main": "build/index.js",
   "types": "build/index.d.ts",
