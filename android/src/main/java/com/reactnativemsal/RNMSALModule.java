@@ -53,7 +53,7 @@ public class RNMSALModule extends ReactContextBaseJavaModule {
     private static final String AUTHORITY_TYPE_AAD = "AAD";
 
     private static final Pattern aadAuthorityPattern = Pattern.compile("https://login\\.microsoftonline\\.com/([^/]+)");
-    private static final Pattern b2cAuthorityPattern = Pattern.compile("https://([^/]+)/tfp/([^/]+)/.+");
+    private static final Pattern b2cAuthorityPattern = Pattern.compile("https://([^/]+)/([^/]+)/.+");
 
     private IMultipleAccountPublicClientApplication publicClientApplication;
 
