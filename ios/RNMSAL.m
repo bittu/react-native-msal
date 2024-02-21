@@ -1,6 +1,6 @@
 #import "RNMSAL.h"
-#import <React/RCTConvert.h>
-#import <React/RCTLog.h>
+#import "React/RCTConvert.h"
+#import "React/RCTLog.h"
 #import <MSAL/MSAL.h>
 
 #import "UIViewController+RNMSALUtils.h"
