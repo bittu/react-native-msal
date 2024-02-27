@@ -17,7 +17,7 @@ def safeExtGet(prop, fallback) {
 
 android {
   namespace 'com.reactnativemsal'
-  compileSdkVersion safeExtGet('Msal_compileSdkVersion', 33)
+  compileSdkVersion 33
   defaultConfig {
     minSdkVersion safeExtGet('Msal_minSdkVersion', 21)
     targetSdkVersion safeExtGet('Msal_targetSdkVersion', 33)

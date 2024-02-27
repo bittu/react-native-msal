@@ -243,10 +243,10 @@ public class RNMSALModule extends ReactContextBaseJavaModule {
             }
 
             if (params.hasKey("extraQueryParameters")) {
-                List<Pair<String, String>> parameters = new ArrayList<>();
+                List<Map.Entry<String, String>> parameters = new ArrayList<>();
                 for (Map.Entry<String, Object> entry :
                         params.getMap("extraQueryParameters").toHashMap().entrySet()) {
-                    parameters.add(new Pair<>(entry.getKey(), entry.getValue().toString()));
+                    parameters.add(new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getValue().toString()));
                 }
                 acquireTokenParameters.withAuthorizationQueryStringParameters(parameters);
             }
