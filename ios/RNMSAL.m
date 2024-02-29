@@ -105,7 +105,7 @@ RCT_REMAP_METHOD(acquireToken,
         interactiveParams.extraQueryParameters = extraQueryParameters;
         interactiveParams.extraScopesToConsent = extraScopesToConsent;
         if (authority) {
-            interactiveParams.authority = [MSALAuthority authorityWithURL:[NSURL URLWithString:authority] error:nil];
+            interactiveParams.authority = [[MSALB2CAuthority alloc] authorityWithURL:[NSURL URLWithString:authority] error:nil];
         }
 
         // Send request
@@ -150,7 +150,7 @@ RCT_REMAP_METHOD(acquireTokenSilent,
         MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] initWithScopes:scopes account:account];
         silentParams.forceRefresh = forceRefresh;
         if (authority) {
-            silentParams.authority = [MSALAuthority authorityWithURL:[NSURL URLWithString:authority] error:nil];
+            silentParams.authority = [[MSALB2CAuthority alloc] authorityWithURL:[NSURL URLWithString:authority] error:nil];
         }
 
         // Send request
