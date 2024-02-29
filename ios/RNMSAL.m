@@ -35,7 +35,7 @@ RCT_REMAP_METHOD(createPublicClientApplication,
 
         MSALPublicClientApplicationConfig *applicationConfig = [[MSALPublicClientApplicationConfig alloc] initWithClientId:clientId];
         if (authority) {
-            MSALAuthority *msalAuthority = [MSALAuthority authorityWithURL:[NSURL URLWithString:authority] error:&msalError];
+            MSALB2CAuthority *msalAuthority = [MSALB2CAuthority initWithURL:[NSURL URLWithString:authority] error:&msalError];
             if (msalError) {
                 @throw(msalError);
             }
@@ -43,9 +43,9 @@ RCT_REMAP_METHOD(createPublicClientApplication,
         }
 
         if (knownAuthorities) {
-            NSMutableArray<MSALAuthority*> * msalKnownAuthorities = [NSMutableArray arrayWithCapacity:1];
+            NSMutableArray<MSALB2CAuthority*> * msalKnownAuthorities = [NSMutableArray arrayWithCapacity:1];
             for (NSString *authorityString in knownAuthorities) {
-                MSALAuthority *a = [MSALAuthority authorityWithURL:[NSURL URLWithString:authorityString] error:&msalError];
+                MSALB2CAuthority *a = [MSALB2CAuthority initWithURL:[NSURL URLWithString:authorityString] error:&msalError];
                 if (msalError) {
                     @throw(msalError);
                 }

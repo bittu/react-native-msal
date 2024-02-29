@@ -7,7 +7,7 @@ const withIosUrlScheme = (config) => {
         throw new Error('ios.bundleIdentifier is required in your expo config');
     }
     const QUERY_SCHEMES = ['msauthv2', 'msauthv3'];
-    const URL_SCHEME = { CFBundleURLSchemes: [`msauth.${config.ios.bundleIdentifier}`] };
+    const URL_SCHEME = { CFBundleURLSchemes: [`${config.ios.bundleIdentifier}`] };
     return (0, config_plugins_1.withInfoPlist)(config, (mod) => {
         mod.modResults.CFBundleURLTypes = [URL_SCHEME, ...(mod.modResults.CFBundleURLTypes || [])];
         mod.modResults.LSApplicationQueriesSchemes = [
